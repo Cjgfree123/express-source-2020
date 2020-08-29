@@ -1,5 +1,5 @@
 const express = require('../lib/express');
-
+const app = express();
 
 // next: 表示执行下一个
 /**
@@ -11,10 +11,12 @@ app.get('/', function (req, res, next) {
 }, function (req, res, next) {
     console.log(11);
     next();
-}).get('/', function (req, res, next) {
+})
+app.get('/', function (req, res, next) {
     console.log(2);
     next();
-}).get('/', function (req, res, next) {
+})
+app.get('/', function (req, res, next) {
     console.log(3);
     res.end('ok');
 });
