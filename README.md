@@ -6,7 +6,8 @@
 test
     |__1.get.js // 使用demo
 lib
-    |__express.js // 创建app实例，路由实现
+    |__express.js // 提供创建app实例的函数，即:express
+    |__application.js // 返回创建的app实例
 ```
 
 ## 步骤
@@ -40,3 +41,34 @@ lib
     - 在app.listen时, 拿到页面路径，一一遍历router数组，优先匹配path, 再匹配method, 如果都符合才执行handler. 如果未命中所有的路由，则报错。
     
 
+二、2.router.js 实现路由
+
+（一）抽离
+
+    - 将 createApplication 返回的实例，进行抽离到Application.js文件里，并将app.get/app.listen抽离成原型属性。
+
+    ```
+    function Application() {
+       
+    }
+
+    Application.prototype.get = function (path, handler) {
+
+    }
+
+    Application.prototype.listen = function () {
+    }
+    ```
+
+    - 将Router作为私有属性
+
+    ```
+    function Application() {
+        /**
+        * 私有属性
+        */
+        this._router = new Router(); // 这是一个路由规则的窗口
+    }
+    ```
+
+（二）
