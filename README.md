@@ -100,3 +100,8 @@ Route   layer  路径+处理函数(真正的业务代码) 有一个特殊的属�
     - 当执行app.get(path, handler), 相当于new Router().get(path, handler), 等于new route(path).get(handler)来执行对应函数, 作用: 将真正的业务函数挂在layer, 并将layer存入stack数组中。
     - 当app.listen时, 相当于new Router().handler(req, res, done)。
 
+
+## todo
+
+1. Route layer不对，可拿2.router.js进行验证~~~
+

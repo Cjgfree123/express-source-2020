@@ -12,7 +12,7 @@ app.get('/', function (req, res, next) {
     console.log(11);
     next();
 })
-app.get('/', function (req, res, next) {
+app.get('/2', function (req, res, next) {
     console.log(2);
     next();
 })
